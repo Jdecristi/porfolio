@@ -1,5 +1,5 @@
 //Imports
-import Image from 'next/Image';
+import Image from 'next/image';
 import { Typography } from '@mui/material';
 import Styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';

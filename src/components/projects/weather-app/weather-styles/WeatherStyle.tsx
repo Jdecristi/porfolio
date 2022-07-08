@@ -14,7 +14,7 @@ const WeatherStyle: React.FC = () => {
    const isDay = day ? 'day' : 'night';
 
    return (
-      <Container maxWidth="sm" sx={{ position: 'fixed', fontSize: '1vw', top: '20%', left: '20%', transform: 'translateY(-50%)' }}>
+      <Container maxWidth="sm" sx={{ position: 'fixed', fontSize: { xs: '1.75vw', sm: '1.5vw', md: '1vw' }, top: '20%', left: { xs: '30%', md: '20%' } }}>
          {main === 'CLEAR' || main === 'CLOUDS' || main === 'ATMOSPHERE'
             ? clear[isDay].map((d) => (
                  <CelestialBody key={clear[isDay].indexOf(d)} insideColor={d.insideColor} outsideColor={d.outsideColor} size={d.size} position={d.position} zIndex={d.zIndex} />

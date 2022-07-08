@@ -38,7 +38,7 @@ const TemperatureTimer: React.FC = () => {
    });
 
    return (
-      <Container maxWidth={false} sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'start' }}>
+      <Container maxWidth={false} sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' }, alignItems: 'start' }}>
          <Typography color="primary" sx={{ fontSize: '5em', fontWeight: 'light' }}>
             {newTemp}
          </Typography>

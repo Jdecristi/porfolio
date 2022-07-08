@@ -43,14 +43,6 @@ const themeTokens = (mode: 'light' | 'dark') => {
 const componentOverrides = (theme: Theme) => {
    return {
       components: {
-         MuiCard: {
-            styleOverrides: {
-               root: {
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 5,
-               },
-            },
-         },
          MuiInput: {
             defaultProps: {
                disableUnderline: true,
@@ -58,20 +50,20 @@ const componentOverrides = (theme: Theme) => {
             styleOverrides: {
                root: {
                   padding: '0 0.75rem',
-                  color: '#999999',
+                  color: theme.palette.background.paper,
                   fontWeight: 'bold',
                   backgroundColor: 'transparent',
-                  border: '2px solid #999999',
+                  border: '2px solid ' + theme.palette.background.paper,
                   borderRadius: '5px',
 
                   '&:hover': {
-                     color: theme.palette.primary.dark,
-                     border: '2px solid ' + theme.palette.primary.dark,
+                     color: theme.palette.background.default,
+                     border: '2px solid ' + theme.palette.background.default,
                   },
 
                   '&:focus': {
-                     color: theme.palette.primary.dark,
-                     border: '2px solid ' + theme.palette.primary.dark,
+                     color: theme.palette.background.default,
+                     border: '2px solid ' + theme.palette.background.default,
                      outline: 'none',
                   },
 
@@ -88,16 +80,17 @@ const componentOverrides = (theme: Theme) => {
             },
             styleOverrides: {
                root: {
+                  color: theme.palette.background.default,
                   padding: '0.25rem 0.75rem',
                   bgColor: 'transparent',
-                  border: '2px solid #999999',
+                  border: '2px solid ' + theme.palette.background.paper,
                   borderRadius: '5px',
                   boxShadow: 'none',
                },
                '&:hover': {
-                  color: theme.palette.primary.dark,
+                  color: theme.palette.background.default,
                   backgroundColor: 'transparent',
-                  border: '2px solid ' + theme.palette.primary.dark,
+                  border: '2px solid ' + theme.palette.background.default,
                   boxShadow: '0 0 0 0 5px #999999',
                },
             },

@@ -54,36 +54,45 @@ const SettingsBar: React.FC<Props> = (props) => {
       }
    };
 
+   const handleClick = () => {
+      if (!open) return updateOpen(true);
+
+      newSearch(localLocation, localUnits);
+   };
+
    return (
-      <Box
-         sx={{
-            bgcolor: 'background.paper',
-            p: '0.5rem 1rem',
-            width: `${!open ? '1.5rem' : null}`,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
-            borderRadius: '5px',
-            position: 'fixed',
-            bottom: '2rem',
-            right: '2rem',
-         }}
-      >
-         <SearchIcon sx={{ height: '1.5em', cursor: 'pointer', color: 'primary.main' }} onClick={() => updateOpen(!open)} />
-         {open ? (
-            <Box sx={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-               <Input
-                  placeholder="SEARCH A CITY (DENVER)"
-                  onChange={(e) => updateLocalLocation(e.target.value)}
-                  onKeyDown={(e) => (e.key === 'Enter' ? newSearch(localLocation, localUnits) : null)}
-               />
-               <Dropdown items={['FAHRENHEIT', 'CELCIUS', 'KELVIN']} selected={unitAlias} updateSelected={updateUnitFromAlias} />
-               <Button onClick={() => newSearch(localLocation, localUnits)} onKeyDown={(e) => (e.key === 'Enter' ? newSearch(localLocation, localUnits) : null)}>
-                  Search
-               </Button>
-            </Box>
-         ) : null}
-      </Box>
+      <>
+         {open && <Box sx={{ position: 'fixed', top: 0, right: 0, bottom: 0, left: 0, zIndex: 9 }} onClick={() => updateOpen(false)} />}
+         <Box
+            sx={{
+               bgcolor: 'primary.main',
+               p: '0.5rem 1rem',
+               maxWidth: `${!open ? '1.5rem' : '90vw'}`,
+               display: 'flex',
+               alignItems: 'center',
+               gap: '0.75rem',
+               borderRadius: '5px',
+               position: 'fixed',
+               bottom: '2rem',
+               left: '50%',
+               transform: 'translateX(-50%)',
+               zIndex: 10,
+            }}
+         >
+            {open && (
+               <Box sx={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
+                  <Input
+                     placeholder="CITY NAME"
+                     sx={{ minWidth: '8rem' }}
+                     onChange={(e) => updateLocalLocation(e.target.value)}
+                     onKeyDown={(e) => (e.key === 'Enter' ? newSearch(localLocation, localUnits) : null)}
+                  />
+                  <Dropdown items={['FAHRENHEIT', 'CELCIUS', 'KELVIN']} selected={unitAlias} updateSelected={updateUnitFromAlias} />
+               </Box>
+            )}
+            <SearchIcon sx={{ height: '1.5em', cursor: 'pointer', color: 'background.default' }} onClick={() => handleClick()} />
+         </Box>
+      </>
    );
 };
 

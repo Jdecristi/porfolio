@@ -10,15 +10,15 @@ const WeatherContent: React.FC = () => {
       <Container
          maxWidth="md"
          sx={{
-            width: '50vw',
+            width: { xs: '100vw', md: '50vw' },
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-evenly',
-            alignItems: 'end',
+            alignItems: { xs: 'center', md: 'end' },
             position: 'fixed',
             fontSize: '2.5vw',
-            top: '50%',
-            left: '70%',
+            top: { xs: '60%', md: '50%' },
+            left: { xs: '50%', md: '70%' },
             transform: 'translate(-50%, -50%)',
          }}
       >

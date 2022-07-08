@@ -34,7 +34,7 @@ const ProjectCards: React.FC = () => {
       carousel!.style.transform = 'translateX(-100vw)';
 
       setTimeout(() => {
-         carousel!.style.transition = 'transform 500ms ease-in-out';
+         carousel!.style.transition = 'transform 500ms';
          carousel!.style.transform = 'translateX(0)';
 
          const newCard = currentCard === 0 ? cards.length - 1 : currentCard - 1;
@@ -55,7 +55,7 @@ const ProjectCards: React.FC = () => {
          carousel!.style.transform = 'translateX(0)';
 
          setTimeout(() => {
-            carousel!.style.transition = 'transform 500ms ease-in-out';
+            carousel!.style.transition = 'transform 500ms';
             carousel!.removeEventListener('transitionend', reset);
          });
       };
@@ -77,7 +77,7 @@ const ProjectCards: React.FC = () => {
                   flexDirection: 'row',
                   justifyContent: 'flex-start',
                   position: 'absolute',
-                  transition: 'transform 500ms ease-in-out',
+                  transition: 'transform 500ms',
                }}
                ref={carouselRef}
                onPointerDown={(e) => (pointerPosition = e.pageX)}

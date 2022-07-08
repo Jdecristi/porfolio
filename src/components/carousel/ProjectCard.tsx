@@ -47,17 +47,18 @@ const ProjectCard: React.FC<Props> = (props: Props) => {
          <Box
             sx={{
                height: '100%',
-               maxWidth: '70vw',
-               maxHeight: '70vh',
+               maxWidth: { xs: '80vw', sm: '70vw' },
+               maxHeight: { xs: '100%', sm: '80%' },
                aspectRatio: aspectRatio,
                position: 'absolute',
                top: '50%',
                left: '50%',
                transform: 'translate(-50%, -50%)',
             }}
+            draggable="false"
          >
-            <Link href={card.href} passHref>
-               <a target="_blank">
+            <Link href={card.href} draggable="false" passHref>
+               <a target="_blank" draggable="false">
                   <Box
                      sx={{
                         display: 'block',
@@ -67,14 +68,14 @@ const ProjectCard: React.FC<Props> = (props: Props) => {
                         aspectRatio: aspectRatio,
                         border: 'none',
                         borderRadius: '2rem',
-                        filter: 'drop-shadow(0 0 1rem #00000025)',
                         backgroundImage: `url('images/project-thumbnails/${imagePath || ''}${card.name}-thumbnail.png')`,
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
-                        scrollSnapAlign: 'start',
+                        userDrag: 'none',
                         cursor: 'pointer',
                      }}
+                     draggable="false"
                   />
                </a>
             </Link>

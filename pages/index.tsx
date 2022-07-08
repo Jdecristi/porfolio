@@ -5,13 +5,8 @@ import MainLayout from '../src/layouts/MainLayout';
 import ProjectCards from '../src/components/carousel/ProjectCards';
 
 const Index: NextPage = () => (
-   <MainLayout
-      links={[
-         { name: 'about', href: '/about' },
-         { name: 'contact', href: '/contact' },
-      ]}
-   >
-      <Box sx={{ py: '3rem', position: 'absolute', top: '3rem', bottom: '3rem' }}>
+   <MainLayout link={{ name: 'about', href: '/about' }}>
+      <Box sx={{ py: '3rem', position: 'absolute', top: '3rem', bottom: '1rem' }}>
          <ProjectCards />
       </Box>
    </MainLayout>

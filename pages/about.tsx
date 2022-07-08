@@ -10,12 +10,7 @@ const About: NextPage = () => {
 
    return (
       <>
-         <MainLayout
-            links={[
-               { name: 'contact', href: '/contact' },
-               { name: 'products', href: '/' },
-            ]}
-         >
+         <MainLayout link={{ name: 'products', href: '/' }}>
             <Container sx={{ mt: '10rem', mb: '5rem' }}>
                <Typography variant="h2" color="primary">
                   Who I am

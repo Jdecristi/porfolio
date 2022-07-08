@@ -29,7 +29,7 @@ const themeTokens = (mode: 'light' | 'dark') => {
       palette: {
          mode,
          primary: {
-            main: getColor('#2c2e37', '#DDDDDD'),
+            main: getColor('#202225', '#DDDDDD'),
             light: getColor('#333641', '#EEEEEE'),
             dark: getColor('#1c1d20', '#CCCCCC'),
             accent: getColor('#333641', '#CCCCCC'),
@@ -41,8 +41,8 @@ const themeTokens = (mode: 'light' | 'dark') => {
             muted: getColor('#A5A8B6', '#8E92A3'),
          },
          background: {
-            default: getColor('#EEEEEE', '#2c2e37'),
-            paper: getColor('#FFFFFF', '#40465b'),
+            default: getColor('#EEEEEE', '#202225'),
+            paper: getColor('#FFFFFF', '#2d2f34'),
             surface: getColor('#F7F7F9', '#2B2D3C'),
             header: getColor('#2B2D3C', '#1b1c22'),
          },

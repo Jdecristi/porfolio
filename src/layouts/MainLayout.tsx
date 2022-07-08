@@ -10,12 +10,12 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 //Types
 interface Props {
    children: React.ReactNode;
-   links: { name: string; href: string }[];
+   link: { name: string; href: string };
    page?: string;
 }
 
 const MainLayout: React.FC<Props> = (props) => {
-   const { children, links, page } = props;
+   const { children, link, page } = props;
 
    return (
       <>
@@ -27,41 +27,38 @@ const MainLayout: React.FC<Props> = (props) => {
          <MainTheme>
             <CssBaseline />
             <Container maxWidth={false} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', position: 'fixed', top: 0, zIndex: 10 }}>
-               {links.map((link) => (
-                  <Link key={links.indexOf(link)} href={link.href}>
-                     <Box
-                        sx={{
-                           fontSize: '1.25rem',
-                           margin: '0 3rem',
-                           padding: '0.5rem 0',
-                           color: 'primary.main',
-                           textDecoration: 'none',
-                           textTransform: 'uppercase',
-                           cursor: 'pointer',
-                           '&:hover': { borderColor: 'primary.main', borderBottom: '2px solid' },
-                        }}
-                     >
-                        {link.name}
-                     </Box>
-                  </Link>
-               ))}
-            </Container>
-            <Box sx={{ zIndex: 1 }}>{children}</Box>
-            <Container maxWidth={false} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', position: 'fixed', bottom: 0, zIndex: 10 }}>
-               <ThemeSwitch />
-               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '1rem', gap: '1rem' }}>
+               <Link href={link.href}>
+                  <Box
+                     sx={{
+                        fontSize: '1.25rem',
+                        mt: '1rem',
+                        ml: { xs: 0, sm: '3rem' },
+                        padding: 0,
+                        color: 'primary.main',
+                        textDecoration: 'none',
+                        textTransform: 'uppercase',
+                        cursor: 'pointer',
+                        '&:hover': { borderColor: 'primary.main', borderBottom: '2px solid' },
+                     }}
+                  >
+                     {link.name}
+                  </Box>
+               </Link>
+               <Box sx={{ mt: '0.5rem', mr: { xs: 0, sm: '3rem' }, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
+                  <ThemeSwitch />
                   <Link href="https://github.com/Jdecristi" passHref>
                      <a target="blank">
-                        <GitHubIcon sx={{ fontSize: '2.25rem', cursor: 'pointer', color: 'primary.main' }} />
+                        <GitHubIcon sx={{ fontSize: '2rem', cursor: 'pointer', color: 'primary.main' }} />
                      </a>
                   </Link>
                   <Link href="https://www.linkedin.com/in/josh-decristi-b84356198/" passHref>
                      <a target="blank">
-                        <LinkedInIcon sx={{ fontSize: '2.5rem', cursor: 'pointer', color: 'primary.main' }} />
+                        <LinkedInIcon sx={{ fontSize: '2.25rem', cursor: 'pointer', color: 'primary.main' }} />
                      </a>
                   </Link>
                </Box>
             </Container>
+            <Box sx={{ zIndex: 1 }}>{children}</Box>
          </MainTheme>
       </>
    );

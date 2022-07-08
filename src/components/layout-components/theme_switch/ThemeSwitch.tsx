@@ -11,11 +11,11 @@ const ThemeSwitch: React.FC = () => {
    const dispatch = useAppDispatch();
 
    return (
-      <Button variant="invisible" sx={{ margin: '0.5rem 2rem' }} onClick={() => dispatch(setTheme())}>
-         <Box sx={{ padding: '0.125rem', width: '3rem', height: '2rem', borderRadius: '1.25rem', bgcolor: 'primary.main' }}>
+      <Button variant="invisible" onClick={() => dispatch(setTheme())}>
+         <Box sx={{ padding: '0.125rem', width: '2.65rem', height: '1.75rem', borderRadius: '1.25rem', bgcolor: 'primary.main' }}>
             <Box
                sx={{
-                  width: '1.75rem',
+                  width: '1.5rem',
                   aspectRatio: '1/1',
                   borderRadius: '1.25rem',
                   bgcolor: 'background.default',

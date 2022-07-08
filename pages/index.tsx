@@ -1,8 +1,8 @@
 //Imports
 import { NextPage } from 'next';
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import MainLayout from '../src/layouts/MainLayout';
-import ProjectCards from '../src/components/project-cards/ProjectCards';
+import ProjectCards from '../src/components/carousel/ProjectCards';
 
 const Index: NextPage = () => (
    <MainLayout
@@ -11,9 +11,9 @@ const Index: NextPage = () => (
          { name: 'contact', href: '/contact' },
       ]}
    >
-      <Container maxWidth={false} sx={{ py: '3rem', position: 'absolute', top: '3rem', bottom: '3rem' }}>
+      <Box sx={{ py: '3rem', position: 'absolute', top: '3rem', bottom: '3rem' }}>
          <ProjectCards />
-      </Container>
+      </Box>
    </MainLayout>
 );
 

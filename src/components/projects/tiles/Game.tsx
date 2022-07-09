@@ -15,7 +15,7 @@ const Game = () => {
 
    useEffect(() => {
       setTimeout(() => {
-         dispatch(setGame());
+         dispatch(updateShowText(true));
          startGame();
       }, 500);
    }, []);

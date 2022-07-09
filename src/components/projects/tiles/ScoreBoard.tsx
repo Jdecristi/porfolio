@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
-import { updateShowGame } from '../../../redux/slices/tilesSlice';
+import { updateShowGame, setGame } from '../../../redux/slices/tilesSlice';
 import { Container, Grid, Typography, Button } from '@mui/material';
 
 type Score = {
@@ -51,15 +51,12 @@ const ScoreBoard: React.FC = () => {
       }
    };
 
-   const scoreColor = (score: Score) => {
-      if (score.tiles === currentScore.tiles) return '#ffffff';
-   };
-
    const restartGame = () => {
       dispatch(updateShowGame({ showGame: false, showScoreBoard: false }));
 
       setTimeout(() => {
          dispatch(updateShowGame({ showGame: true, showScoreBoard: false }));
+         dispatch(setGame())
       }, 2000);
    };
 

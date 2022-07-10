@@ -6,8 +6,13 @@ import Styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 
 //Types and Interfaces
+interface Props {
+   timerFinished: () => void;
+}
 
-const Timer: React.FC = () => {
+const Timer: React.FC<Props> = (props) => {
+   const { timerFinished } = props;
+
    //State Declarations andHooks
    let [timer, setTimer] = useState(3);
 
@@ -26,6 +31,7 @@ const Timer: React.FC = () => {
             dispatch(updateShowTimer(false));
 
             setTimeout(() => {
+               timerFinished();
                dispatch(updateShowBoard(true));
             }, 500);
          }

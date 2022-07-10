@@ -1,7 +1,7 @@
 //Imports
 import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
-import { updateShowGame, setGame, updateShowText, updateShowTimer, updateShowBoard, updateLevel, updateScore } from '../../../redux/slices/tilesSlice';
+import { updateShowGame, updateShowText, updateShowTimer, updateShowBoard, updateLevel, updateScore } from '../../../redux/slices/tilesSlice';
 import Timer from './Timer';
 import { createTiles, removeTiles } from './floating-tiles/FloatingTiles';
 import TileBoard from './grid/TileBoard';
@@ -25,34 +25,29 @@ const Game = () => {
       setTimeout(() => {
          dispatch(updateShowText(false));
 
-         setTimeout(() => {
-            createTiles();
-         }, 100);
+         setTimeout(createTiles, 100);
 
          setTimeout(() => {
-            startRound();
+            dispatch(updateShowTimer(true));
          }, 2000);
       }, 2000);
    };
 
    const startRound = () => {
-      dispatch(updateShowTimer(true));
+      dispatch(updateShowBoard(true));
       dispatch(updateLevel(level + 1));
    };
 
    const endRound = (correctCount: number) => {
       dispatch(updateScore(score + correctCount));
+      dispatch(updateShowBoard(false));
 
       setTimeout(() => {
-         dispatch(updateShowBoard(false));
-
          if (correctCount === level + 4) {
-            startRound();
+            setTimeout(startRound, 500);
          } else {
             removeTiles();
-            setTimeout(() => {
-               endGame();
-            }, 1000);
+            setTimeout(endGame, 1000);
          }
       }, 500);
    };
@@ -88,7 +83,7 @@ const Game = () => {
    return (
       <>
          {showText && <H1>Remember The Tiles</H1>}
-         {showTimer && <Timer />}
+         {showTimer && <Timer timerFinished={startRound} />}
          {showBoard && <TileBoard level={level} endRound={endRound} />}
       </>
    );

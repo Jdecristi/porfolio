@@ -13,12 +13,11 @@ const Dropdown: React.FC<Props> = (props) => {
    const { darkMode, items, selected, updateSelected } = props;
 
    const [open, updateOpen] = useState<boolean>(false);
-   const [currentItem, updateCurrentItem] = useState<string>(selected);
 
    return (
       <>
          <div className="container">
-            <Button onClick={() => updateOpen(!open)}>{currentItem.toUpperCase()}</Button>
+            <Button onClick={() => updateOpen(!open)}>{selected.toUpperCase()}</Button>
             {open ? (
                <Box
                   sx={{
@@ -40,7 +39,7 @@ const Dropdown: React.FC<Props> = (props) => {
                         key={items.indexOf(item)}
                         sx={{ width: '100%' }}
                         onClick={() => {
-                           updateCurrentItem(item);
+                           updateSelected(item);
                            updateOpen(!open);
                         }}
                      >

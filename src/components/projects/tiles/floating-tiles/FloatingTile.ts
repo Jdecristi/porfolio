@@ -1,7 +1,7 @@
 import { removeTile } from './FloatingTiles';
-
 class Tile {
    tile: HTMLElement;
+   screenSize: () => number;
    position: { x: number; y: number };
    size: number;
    angle: number;
@@ -9,13 +9,19 @@ class Tile {
    rotation: { speed: number; direction: boolean };
 
    constructor(center: boolean) {
+      this.screenSize = () => {
+         if (window.innerWidth <= 600) return 1;
+         if (window.innerWidth <= 1100) return 2;
+         return 3;
+      };
+
       this.position = center ? { x: window.innerWidth / 2, y: window.innerHeight / 2 } : this.setStartingPoint();
       this.size = Math.random() * 5 + 1;
       this.tile = document.createElement('div');
 
       //Physics
       this.angle = Math.random() * (Math.PI * 2);
-      this.velocity = center ? Math.random() * 10 + 10 : 0;
+      this.velocity = center ? Math.random() * this.screenSize() * 5 + this.screenSize() * 4 : 0;
       this.rotation = { speed: Math.random() * 0.5, direction: Math.round(Math.random() + 1) % 2 === 0 };
 
       //Initial state
@@ -51,23 +57,27 @@ class Tile {
       }
    }
 
-   gravity(g: number) {
-      const halfWidth = window.innerWidth / 2;
-      const halfHeight = window.innerHeight / 2;
-      if (this.position.x > halfWidth) {
-         this.position.x -= ((this.position.x - halfWidth) / halfWidth) * g;
+   gravity(gravity: number) {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      //update tile's x position
+      if (this.position.x > width / 2) {
+         this.position.x -= (this.position.x - width / 2) * gravity;
       } else {
-         this.position.x += ((halfWidth - this.position.x) / halfWidth) * g;
+         this.position.x += (width / 2 - this.position.x) * gravity;
       }
-      if (this.position.y > halfHeight) {
-         this.position.y -= ((this.position.y - halfHeight) / window.innerHeight) * g;
+
+      //update tile's y position
+      if (this.position.y > height / 2) {
+         this.position.y -= (this.position.y - height / 2) * gravity;
       } else {
-         this.position.y += ((halfHeight - this.position.y) / window.innerHeight) * g;
+         this.position.y += (height / 2 - this.position.y) * gravity;
       }
    }
 
-   setTilePosition(speed: number) {
-      this.gravity(speed);
+   setTilePosition(gravity: number) {
+      this.gravity(gravity);
       this.position.x += Math.cos(this.angle) * this.velocity;
       this.position.y += Math.sin(this.angle) * this.velocity;
 
@@ -90,15 +100,18 @@ class Tile {
          this.tile.remove();
          removeTile(this);
       }
+
       this.rotation.speed += 0.1;
 
       if (this.velocity <= 0) {
-         this.size = this.size - (createMoreTiles ? 0.005 : 0.07);
+         this.size = this.size - (createMoreTiles ? 0.005 : 0.15);
       } else {
-         this.velocity = this.velocity - 0.125;
+         this.velocity = this.velocity - this.screenSize() * 0.05;
       }
 
-      this.setTilePosition(createMoreTiles ? 0.5 : 60);
+      const gravity = createMoreTiles ? 0.0015 : 0.1;
+
+      this.setTilePosition(gravity);
       this.setTileSize(this.size);
       this.setTileRotation(this.rotation.speed, this.rotation.direction);
    }

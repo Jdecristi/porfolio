@@ -21,7 +21,7 @@ const Tiles: NextPage = () => {
          <Head>
             <title>Tiles</title>
             <meta name="description" content="A simple memorization game by Jdecristi" />
-            <link rel="icon" href="images/svg/favicon.svg" />
+            <link rel="icon" href="../images/svg/favicon.svg" />
          </Head>
          <TilesTheme>
             <Box sx={{ background: 'radial-gradient(circle, #000000, #0d0a28)', position: 'fixed', top: 0, right: 0, bottom: 0, left: 0 }}>

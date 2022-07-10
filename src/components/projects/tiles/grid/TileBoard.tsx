@@ -174,7 +174,7 @@ const TileBoard: React.FC<Props> = (props) => {
       <>
          <Grid>
             {tiles.map((tile) => (
-               <Tile key={tile.id} tile={tile} tileSize={gridSize / Math.sqrt(count)} tileClicked={tileClicked} />
+               <Tile key={tile.id} tile={tile} allCorrect={correctCount === chosenTileCount} tileClicked={tileClicked} />
             ))}
          </Grid>
       </>

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
 import { updateShowGame, setGame } from '../../../redux/slices/tilesSlice';
-import { Container, Grid, Typography, Button } from '@mui/material';
+import { Box, Container, Grid, Typography, Button } from '@mui/material';
 
 type Score = {
    level: number;
@@ -56,65 +56,53 @@ const ScoreBoard: React.FC = () => {
 
       setTimeout(() => {
          dispatch(updateShowGame({ showGame: true, showScoreBoard: false }));
-         dispatch(setGame())
+         dispatch(setGame());
       }, 2000);
    };
 
    return (
-      <Container maxWidth="lg" sx={{ my: '5rem' }}>
-         <Container maxWidth="md" sx={{ my: '5rem' }}>
+      <Container maxWidth="lg" sx={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+         <Box sx={{ my: '5rem' }}>
             <Typography variant="h2" color="primary" sx={{ my: '3rem', textAlign: 'center' }}>
                Score Board
             </Typography>
             ;
             {scores.length ? (
-               <Container maxWidth={false}>
-                  <Grid container columns={5}>
-                     <Grid item sm={1} sx={{ ml: 'auto' }}>
-                        <Typography variant="h4" color="primary" sx={{ my: '2rem', minWidth: '75px', textAlign: 'right' }}>
-                           Scores
-                        </Typography>
-                     </Grid>
-                     <Grid item sm={2} />
-                     <Grid item sm={1} sx={{ ml: 'auto' }}>
-                        <Typography variant="h4" color="primary" sx={{ my: '2rem', minWidth: '75px', textAlign: 'right' }}>
-                           Level
-                        </Typography>
-                     </Grid>
-                     <Grid item sm={1} sx={{ ml: 'auto' }}>
-                        <Typography variant="h4" color="primary" sx={{ my: '2rem', minWidth: '75px', textAlign: 'right' }}>
-                           Tiles
-                        </Typography>
-                     </Grid>
-                  </Grid>
+               <Box>
+                  <Box sx={{ mb: '4rem', borderBottom: '2px solid #ffffff', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr' }}>
+                     <Typography variant="h4" color="primary" sx={{ mb: '1rem', minWidth: '75px', textAlign: 'right' }}>
+                        Scores
+                     </Typography>
+                     <Box />
+                     <Typography variant="h4" color="primary" sx={{ mb: '1rem', minWidth: '75px', textAlign: 'center' }}>
+                        Level
+                     </Typography>
+                     <Typography variant="h4" color="primary" sx={{ mb: '1rem', minWidth: '75px', textAlign: 'center' }}>
+                        Tiles
+                     </Typography>
+                  </Box>
                   {scores.map((score: Score) => {
                      return (
                         <div key={scores.indexOf(score)}>
-                           <Grid container columns={5}>
-                              <Grid item sm={1} sx={{ ml: 'auto' }}>
-                                 <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'right', mr: '1rem' }}>
-                                    {score.tiles === currentScore.tiles && '* '}
-                                    {scores.indexOf(score) + 1}
-                                 </Typography>
-                              </Grid>
-                              <Grid item sm={2} />
-                              <Grid item sm={1} sx={{ ml: 'auto' }}>
-                                 <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'right', mr: '1rem' }}>
-                                    {score.level}
-                                 </Typography>
-                              </Grid>
-                              <Grid item sm={1} sx={{ ml: 'auto' }}>
-                                 <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'right', mr: '1rem' }}>
-                                    {score.tiles}
-                                 </Typography>
-                              </Grid>
-                           </Grid>
+                           <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr' }}>
+                              <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'right', mr: '2.5rem' }}>
+                                 {score.tiles === currentScore.tiles ? '* ' : '  '}
+                                 {scores.indexOf(score) + 1}
+                              </Typography>
+                              <Box />
+                              <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'center' }}>
+                                 {score.level}
+                              </Typography>
+                              <Typography variant="h4" color="primary" sx={{ minWidth: '75px', textAlign: 'center' }}>
+                                 {score.tiles}
+                              </Typography>
+                           </Box>
                         </div>
                      );
                   })}
-               </Container>
+               </Box>
             ) : null}
-         </Container>
+         </Box>
          <Container maxWidth="sm" sx={{ my: '5rem', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             <Button variant="contained" size="large" onClick={() => restartGame()}>
                Play Again

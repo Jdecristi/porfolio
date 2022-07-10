@@ -24,6 +24,6 @@ const removeTiles = () => {
 
 setInterval(() => {
    tiles.forEach((tile) => tile.update(createMoreTiles));
-}, 10);
+}, 15);
 
 export { createTiles, removeTile, removeTiles };

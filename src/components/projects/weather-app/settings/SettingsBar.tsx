@@ -22,7 +22,7 @@ const SettingsBar: React.FC<Props> = (props) => {
    const [open, updateOpen] = useState<boolean>(false);
 
    useEffect(() => {
-      switch (units) {
+      switch (localUnits) {
          case 'METRIC':
             updateUnitAlias('CELCIUS');
             break;
@@ -87,7 +87,7 @@ const SettingsBar: React.FC<Props> = (props) => {
                      onChange={(e) => updateLocalLocation(e.target.value)}
                      onKeyDown={(e) => (e.key === 'Enter' ? newSearch(localLocation, localUnits) : null)}
                   />
-                  <Dropdown items={['FAHRENHEIT', 'CELCIUS', 'KELVIN']} selected={unitAlias} updateSelected={updateUnitFromAlias} />
+                  <Dropdown items={['FAHRENHEIT', 'CELCIUS', 'KELVIN']} selected={unitAlias} updateSelected={(item) => updateUnitFromAlias(item)} />
                </Box>
             )}
             <SearchIcon sx={{ height: '1.5em', cursor: 'pointer', color: 'background.default' }} onClick={() => handleClick()} />

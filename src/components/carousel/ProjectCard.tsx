@@ -4,36 +4,32 @@ import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 //Types
-export type Card = {
+export interface Card {
    name: string;
    index: number;
    href: string;
-};
+   available: string[];
+}
 
 interface Props {
    card: Card;
+   cardSize: 'xl' | 'lg' | 'md' | 'sm';
 }
 
 const ProjectCard: React.FC<Props> = (props: Props) => {
-   const { card } = props;
+   const { card, cardSize } = props;
 
    //State and Hooks
    const [imagePath, updateImagePath] = useState<string>();
    const [aspectRatio, updateAspectRatio] = useState<string>();
 
-   const cardSizes = {
-      sm: { imagePath: 'mobile/', aspectRatio: '325 / 700' },
-      md: { imagePath: 'tablet/', aspectRatio: '55 / 80' },
-      lg: { imagePath: '', aspectRatio: '13 / 7' },
-   };
-
    useEffect(() => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      if (width > 1100 || height < width) {
+      console.log(cardSize);
+
+      if (cardSize === 'lg' || cardSize === 'xl') {
          updateImagePath(cardSizes.lg.imagePath);
          updateAspectRatio(cardSizes.lg.aspectRatio);
-      } else if (width > 600) {
+      } else if (cardSize === 'md') {
          updateImagePath(cardSizes.md.imagePath);
          updateAspectRatio(cardSizes.md.aspectRatio);
       } else {
@@ -41,6 +37,12 @@ const ProjectCard: React.FC<Props> = (props: Props) => {
          updateAspectRatio(cardSizes.sm.aspectRatio);
       }
    });
+
+   const cardSizes = {
+      sm: { imagePath: 'mobile/', aspectRatio: '325 / 700' },
+      md: { imagePath: 'tablet/', aspectRatio: '55 / 80' },
+      lg: { imagePath: '', aspectRatio: '13 / 7' },
+   };
 
    return (
       <Box sx={{ width: '100vw', height: '100%', position: 'relative' }}>

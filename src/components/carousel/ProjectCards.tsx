@@ -1,19 +1,28 @@
 //Imports
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Box } from '@mui/material';
 import PojectCard, { Card } from './ProjectCard';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Carouselndicator from './Carouselndicator';
+import projectCards from '../../constants/projectCards.json';
 
 const ProjectCards: React.FC = () => {
    //State and Hooks
    const [currentCard, updateCurrentCard] = useState<number>(0);
-   const [cards, updateCards] = useState<{ name: string; index: number; href: string }[]>([
-      { name: 'tiles', index: 1, href: '/projects/tiles' },
-      { name: 'weather-app', index: 2, href: '/projects/weather-app' },
-   ]);
+   const [cardSize, updateCardSize] = useState<'xl' | 'lg' | 'md' | 'sm'>('lg');
+   const [cards, updateCards] = useState<Card[]>(projectCards);
+
    const carouselRef = useRef<HTMLDivElement>();
    let pointerPosition: number;
+
+   useEffect(() => {
+      setCardSize();
+      window.addEventListener('resize', setCardSize);
+
+      return () => {
+         window.removeEventListener('resize', setCardSize);
+      };
+   }, []);
 
    // Functions
    const handleSwipe = (position: number) => {
@@ -66,6 +75,25 @@ const ProjectCards: React.FC = () => {
       updateCurrentCard(newCard);
    };
 
+   const setCardSize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      if (width > 1100) {
+         updateCardSize('xl');
+         updateCards(projectCards.filter((card) => card.available.includes('xl')));
+      } else if (height < width) {
+         updateCardSize('lg');
+         updateCards(projectCards.filter((card) => card.available.includes('lg')));
+      } else if (width > 600) {
+         updateCards(projectCards.filter((card) => card.available.includes('md')));
+         updateCardSize('md');
+      } else {
+         updateCards(projectCards.filter((card) => card.available.includes('sm')));
+         updateCardSize('sm');
+      }
+   };
+
    return (
       <>
          <Box sx={{ width: '100vw', height: '100%', position: 'relative', overflow: 'hidden' }}>
@@ -84,7 +112,7 @@ const ProjectCards: React.FC = () => {
                onPointerMove={(e) => handleSwipe(e.pageX)}
             >
                {cards.map((card, index) => (
-                  <PojectCard key={index} card={card} />
+                  <PojectCard key={index} card={card} cardSize={cardSize} />
                ))}
             </Box>
          </Box>

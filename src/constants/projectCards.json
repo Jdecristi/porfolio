@@ -1,6 +1,0 @@
-[
-   { "index": 1, "name": "tiles", "href": "/projects/tiles", "available": ["xl", "lg", "md", "sm"] },
-   { "index": 2, "name": "weather-app", "href": "/projects/weather-app", "available": ["xl", "lg", "md", "sm"] },
-   { "index": 3, "name": "lottery", "href": "https://billowing-night-5953.on.fleek.co/", "available": ["xl", "lg", "md", "sm"] },
-   { "index": 4, "name": "opensea-clone", "href": "https://opensea-clone-8sa9f9bpn-jdecristi.vercel.app/", "available": ["xl"] }
-]

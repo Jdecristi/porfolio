@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Mastering the Font-end",
+    "url": "image-1.png",
+    "alt": "Future Project Image",
+    "description": "Next, I plan to work on mastering the front-end. I will expand and deepen my knowledge of front-end concepts. This includes performance, security, architecture, and design."
+  },
+  {
+    "title": "Rust and WASM",
+    "url": "image-2.png",
+    "alt": "Future Project Image",
+    "description": "I plan to learn Rust and Web Assembly (WASM). WASM is a powerful tool used to add performance to web apps. Learning new tools and techniques will help me gain new light on programming and be a better developer."
+  },
+  {
+    "title": "Crypto Development",
+    "url": "image-3.png",
+    "alt": "Future Project Image",
+    "description": "Lastly, I plan to learn blockchain development. Crypto currencies and blockchain will be important industries in the future. I will do my part to build a more sustainable and decentralized world."
+  }
+]

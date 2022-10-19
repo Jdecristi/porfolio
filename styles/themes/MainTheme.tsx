@@ -1,167 +1,303 @@
-import { Theme, ThemeOptions } from '@mui/material';
+import { Theme, CssBaseline, ThemeOptions } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { ColorPartial } from '@mui/material/styles/createPalette';
 import { deepmerge } from '@mui/utils';
-import { useAppSelector } from '../../src/redux/hooks';
 
 //Types
 declare module '@mui/material/styles/createPalette' {
-   interface PaletteColor extends ColorPartial {}
+  interface PaletteColor extends ColorPartial {}
 
-   interface TypeBackground {
-      default: string;
-      paper: string;
-      surface: string;
-      header: string;
-   }
+  interface TypeBackground {
+    main: string;
+    white: string;
+    light: string;
+    dark: string;
+  }
+  interface TypePrimary {
+    main: string;
+    light: string;
+    dark: string;
+  }
+  interface TypeText {
+    primary: string;
+    secondary: string;
+    red: string;
+    blue: string;
+    disabled: string;
+  }
+}
+declare module '@mui/material/styles' {
+  interface ThemeOptions {
+    breakpoints?: {
+      values: {
+        xs: number;
+        sm: number;
+        md: number;
+        lg: number;
+        xl: number;
+      };
+    };
+  }
 }
 
 declare module '@mui/material/Button' {
-   interface ButtonPropsVariantOverrides {
-      invisible: true;
-   }
+  interface ButtonPropsVariantOverrides {
+    red: true;
+    blue: true;
+    disabled: true;
+  }
 }
 
-const themeTokens = (mode: 'light' | 'dark') => {
-   const getColor = (light: string, dark: string) => (mode === 'dark' ? dark : light);
+const themeTokens = {
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 500,
+      md: 800,
+      lg: 1050,
+      xl: 1300,
+    },
+  },
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#555555',
+      light: '#AAAAAA',
+      dark: '#333333',
+    },
+    text: {
+      primary: '#000000',
+      secondary: '#333333',
+      red: '#a80000',
+      blue: '#0024b4',
+      disabled: '#555555',
+    },
+    background: {
+      white: '#FFFFFF',
+      main: '#DDDDDD',
+      light: '#EFEFEF',
+      Dark: '#AAAAAA',
+    },
+  },
+  shape: 5,
+} as ThemeOptions;
 
-   return {
-      palette: {
-         mode,
-         primary: {
-            main: getColor('#202225', '#DDDDDD'),
-            light: getColor('#333641', '#EEEEEE'),
-            dark: getColor('#1c1d20', '#CCCCCC'),
-            accent: getColor('#333641', '#CCCCCC'),
-         },
-         text: {
-            primary: getColor('#303549', '#F1F1F3'),
-            secondary: getColor('#62677B', '#A5A8B6'),
-            disabled: getColor('#D2D4DC', '#62677B'),
-            muted: getColor('#A5A8B6', '#8E92A3'),
-         },
-         background: {
-            default: getColor('#EEEEEE', '#202225'),
-            paper: getColor('#FFFFFF', '#2d2f34'),
-            surface: getColor('#F7F7F9', '#2B2D3C'),
-            header: getColor('#2B2D3C', '#1b1c22'),
-         },
+const typographyOverrides = (theme: Theme) => {
+  return {
+    typography: {
+      fontFamily: '"Dancing Script", "Roboto"',
+      h1: {
+        color: theme?.palette?.text?.primary,
+        fontFamily: '"Dancing Script"',
+
+        [theme.breakpoints.up('xs')]: {
+          fontSize: '3rem',
+        },
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '3.75rem',
+        },
+        [theme.breakpoints.up('md')]: {
+          fontSize: '4.5rem',
+        },
+        [theme.breakpoints.up('lg')]: {
+          fontSize: '5rem',
+        },
+        [theme.breakpoints.up('xl')]: {
+          fontSize: '5.25rem',
+        },
       },
-      shape: 5,
-   } as ThemeOptions;
+      h2: {
+        color: theme?.palette?.text?.primary,
+        fontFamily: '"Dancing Script"',
+
+        [theme.breakpoints.up('xs')]: {
+          fontSize: '2rem',
+        },
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '2.5rem',
+        },
+        [theme.breakpoints.up('md')]: {
+          fontSize: '3rem',
+        },
+        [theme.breakpoints.up('xl')]: {
+          fontSize: '3.5rem',
+        },
+      },
+      h3: {
+        color: theme?.palette?.text?.primary,
+        fontFamily: '"Roboto"',
+
+        [theme.breakpoints.up('xs')]: {
+          fontSize: '1.25rem',
+        },
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '1.5rem',
+        },
+        [theme.breakpoints.up('md')]: {
+          fontSize: '1.75rem',
+        },
+        [theme.breakpoints.up('lg')]: {
+          fontSize: '2rem',
+        },
+      },
+      body1: {
+        color: theme?.palette?.text?.secondary,
+        fontFamily: '"Roboto"',
+
+        fontSize: '1.25rem',
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '1rem',
+        },
+      },
+      button: {
+        fontFamily: '"Dancing Script"',
+
+        [theme.breakpoints.up('xs')]: {
+          fontSize: '0.75rem',
+        },
+
+        [theme.breakpoints.up('md')]: {
+          fontSize: '0.95rem',
+        },
+        [theme.breakpoints.up('xl')]: {
+          fontSize: '1.25rem',
+        },
+      },
+    },
+  };
 };
 
 const componentOverrides = (theme: Theme) => {
-   return {
-      components: {
-         MuiCard: {
-            styleOverrides: {
-               root: {
-                  backgroundColor: theme.palette.background.paper,
-                  borderRadius: 5,
-               },
+  return {
+    components: {
+      MuiContainer: {
+        styleOverrides: {
+          root: {
+            display: 'flex',
+            flexDirection: 'column',
+            flex: 1,
+            paddingBottom: '39px',
+            [theme.breakpoints.up('xs')]: {
+              paddingLeft: '5vw',
+              paddingRight: '5vw',
             },
-         },
-         MuiTextField: {
-            defaultProps: {
-               variant: 'standard',
-               InputProps: { disableUnderline: true },
+            [theme.breakpoints.up('sm')]: {
+              paddingLeft: '7.5vw',
+              paddingRight: '7.5vw',
             },
-            styleOverrides: {
-               root: {
-                  input: {
-                     padding: '0.5rem 0.75rem',
-                     color: '#999999',
-                     fontWeight: 'bold',
-                     backgroundColor: 'transparent',
-                     border: '2px solid #999999',
-                     borderRadius: '5px',
-
-                     '&:hover': {
-                        color: theme.palette.primary.main,
-                        border: '2px solid ' + theme.palette.primary.main,
-                     },
-
-                     '&:focus': {
-                        color: theme.palette.primary.main,
-                        border: '2px solid ' + theme.palette.primary.main,
-                        outline: 'none',
-                     },
-
-                     '&:placeholder-shown': {
-                        color: '#999999',
-                        fontweight: 700,
-                     },
-                  },
-                  textarea: {
-                     padding: '0.5rem 0.75rem',
-                     color: '#999999',
-                     fontWeight: 'bold',
-                     backgroundColor: 'transparent',
-                     border: '2px solid #999999',
-                     borderRadius: '5px',
-
-                     '&:hover': {
-                        color: theme.palette.primary.main,
-                        border: '2px solid ' + theme.palette.primary.main,
-                     },
-
-                     '&:focus': {
-                        color: theme.palette.primary.main,
-                        border: '2px solid ' + theme.palette.primary.main,
-                        outline: 'none',
-                     },
-
-                     '&:placeholder-shown': {
-                        color: '#999999',
-                        fontweight: 700,
-                     },
-                  },
-               },
+            [theme.breakpoints.up('md')]: {
+              paddingLeft: '20px',
+              paddingRight: '20px',
             },
-         },
-         MuiButton: {
-            variants: [
-               {
-                  props: { variant: 'invisible' },
-                  style: {
-                     margin: 0,
-                     padding: 0,
-                     minWidth: 0,
-                     backgroundColor: 'transparent',
-                     border: 'none',
-                     '&:hover': {
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                     },
-                     '&& .MuiTouchRipple-root': {
-                        display: 'none',
-                     },
-                  },
-               },
-            ],
-         },
+            [theme.breakpoints.up('lg')]: {
+              paddingLeft: '50px',
+              paddingRight: '50px',
+            },
+            [theme.breakpoints.up('xl')]: {
+              paddingLeft: 0,
+              paddingRight: 0,
+              maxWidth: '1260px',
+            },
+          },
+        },
       },
-   };
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'transparent',
+            border: 'none',
+            boxShadow: 'none',
+          },
+        },
+      },
+      MuiButtonBase: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            padding: '3px 20px',
+            color: theme?.palette?.text?.primary,
+            backgroundColor: theme.palette?.background?.white,
+            borderRadius: 0,
+            boxShadow: '4px 4px 5px 1px #00000090',
+            textTransform: 'none',
+            fontFamily: 'Dancing Script',
+
+            ':hover': {
+              backgroundColor: theme.palette?.background?.light,
+              borderRadius: 0,
+              transition: 'all 500ms',
+            },
+
+            ':not(:active)': {
+              animation: 'button-animation 300ms ease-in-out',
+            },
+
+            '@keyframes button-animation': {
+              '0%': { boxShadow: '3px 3px 5px #00000090' },
+              '35%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 1px #00000090' },
+              '65%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 1px #00000090' },
+              '100%': { boxShadow: '3px 3px 5px #00000090' },
+            },
+          },
+        },
+        variants: [
+          {
+            props: { variant: 'red' },
+            style: {
+              color: theme?.palette?.text?.red,
+            },
+          },
+          {
+            props: { variant: 'blue' },
+            style: {
+              color: theme?.palette?.text?.blue,
+            },
+          },
+        ],
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            backgroundColor: theme.palette?.background?.light,
+            borderRadius: 0,
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundColor: theme.palette?.background?.light,
+            borderRadius: 0,
+          },
+        },
+      },
+    },
+  };
 };
 
 export let currentTheme: Theme;
 
 //Types
 interface Props {
-   children: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const MainTheme: React.FC<Props> = (props) => {
-   const { children } = props;
+  const { children } = props;
 
-   // State and Hooks
-   const { mode } = useAppSelector((store) => store.theme);
+  currentTheme = createTheme(themeTokens);
+  currentTheme = deepmerge(currentTheme, typographyOverrides(currentTheme));
+  currentTheme = deepmerge(currentTheme, componentOverrides(currentTheme));
 
-   currentTheme = createTheme(themeTokens(mode as 'light' | 'dark'));
-   currentTheme = deepmerge(currentTheme, componentOverrides(currentTheme));
-
-   return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={currentTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
 };
 
 export default MainTheme;

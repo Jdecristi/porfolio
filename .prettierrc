@@ -1,8 +1,8 @@
 {
-    "tabWidth": 3,
-    "fromatOnSave": true,
-    "singleQuote": true,
-    "printWidth": 200,
-    "formatOnPaste": true,
-    "semi": true
+  "tabWidth": 2,
+  "fromatOnSave": true,
+  "singleQuote": true,
+  "printWidth": 170,
+  "formatOnPaste": true,
+  "semi": true
 }

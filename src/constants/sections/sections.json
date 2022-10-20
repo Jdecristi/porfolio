@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "name": "About Me",
+    "scrollTo": 0
+  },
+  {
+    "id": 1,
+    "name": "Projects",
+    "scrollTo": 1000
+  },
+  {
+    "id": 2,
+    "name": "Experience",
+    "scrollTo": 1000
+  },
+  {
+    "id": 3,
+    "name": "Certs",
+    "scrollTo": 1000
+  },
+  {
+    "id": 4,
+    "name": "In Progress",
+    "scrollTo": 1000
+  },
+  {
+    "id": 5,
+    "name": "What's Next",
+    "scrollTo": 1000
+  }
+]

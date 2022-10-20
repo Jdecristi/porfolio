@@ -1,0 +1,81 @@
+[
+  {
+    "sectionId": 0,
+    "typography": "h1",
+    "content": "Joshua DeCristi",
+    "placement": {
+      "top": { "xs": "6vh", "lg": "10vh" },
+      "left": "0px"
+    }
+  },
+  {
+    "sectionId": 0,
+    "typography": "h3",
+    "content": "Front-end Developer",
+    "placement": {
+      "top": { "xs": "15vh", "lg": "20vh" },
+      "left": "0px"
+    },
+    "sx": { "color": "text.primary" }
+  },
+  {
+    "sectionId": 0,
+    "typography": "h2",
+    "content": "Obsessed with the Front-end",
+    "placement": {
+      "top": { "xs": "20vh", "lg": "25vh" },
+      "right": "0px"
+    }
+  },
+  {
+    "sectionId": 1,
+    "typography": "h2",
+    "content": "What I've Built..",
+    "placement": {
+      "top": { "xs": "12vh", "md": "20vh", "lg": "11vh" },
+      "left": "0px"
+    }
+  },
+  {
+    "sectionId": 2,
+    "typography": "h2",
+    "content": "Professional Experience...",
+    "placement": {
+      "top": { "xs": "25vh", "md": "25vh", "lg": "37.5vh" },
+      "right": "0px"
+    }
+  },
+  {
+    "sectionId": 3,
+    "typography": "h2",
+    "content": "Certifications...",
+    "placement": {
+      "top": { "xs": "25vh", "sm": "30vh", "md": "35vh" },
+      "left": "0px"
+    }
+  },
+  {
+    "sectionId": 4,
+    "typography": "h2",
+    "content": "Currently Working On...",
+    "placement": {
+      "top": { "xs": "25vh", "lg": "45vh" },
+      "right": { "xs": "50%", "lg": "0px" }
+    },
+    "sx": {
+      "transform": { "xs": "translateX(50%)", "lg": "none" }
+    }
+  },
+  {
+    "sectionId": 5,
+    "typography": "h2",
+    "content": "What's next...",
+    "placement": {
+      "top": { "xs": "25vh" },
+      "left": "50%"
+    },
+    "sx": {
+      "transform": "translateX(-50%)"
+    }
+  }
+]

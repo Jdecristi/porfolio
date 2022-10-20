@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Tiles",
+    "imageUrl": "tiles",
+    "modalImageCount": { "desktop": 5, "tablet": 5, "mobile": 5 },
+    "site": "/projects/tiles",
+    "github": "https://github.com/Jdecristi/Tiles",
+    "available": ["Desktop", "Tablet", "Mobile"],
+    "description": "I built Tiles to learn Typescript and React. It is a memory game responsively designed to pixel perfection and automatically saves users' scores without needing to log in. See what your high score is by clicking on the link below."
+  },
+
+  {
+    "name": "Weather App",
+    "imageUrl": "weather-app",
+    "modalImageCount": { "desktop": 4, "tablet": 4, "mobile": 4 },
+    "site": "/projects/weather-app",
+    "github": "https://github.com/Jdecristi/WeatherApp",
+    "available": ["Desktop", "Tablet", "Mobile"],
+    "description": "I built Weather App to refine my skills working with APIs and learn complex topics like the parallax effect. I built it using Typescript, React.js, Openweather API, and Suncalc. Search the weather for any city in the world and watch the user interface change based on the local weather and time."
+  },
+
+  {
+    "name": "Crypto Lottery",
+    "imageUrl": "lottery",
+    "modalImageCount": { "desktop": 4, "tablet": 4, "mobile": 4 },
+    "site": "https://billowing-night-5953.on.fleek.co/",
+    "github": "https://github.com/Jdecristi/Lottery",
+    "available": ["Desktop", "Tablet", "Mobile"],
+    "description": "I built the Crypto Lottery to get my feet wet with blockchain development. This app comes with self-written, Mocha-tested smart contracts deployed to Rinkeby and Mumbai test networks. I used Hardhat.js to manage the backend and React.js on the front-end with Moralis to interact with the blockchains."
+  },
+
+  {
+    "name": "Opensea Clone",
+    "imageUrl": "opensea-clone",
+    "modalImageCount": { "desktop": 7, "tablet": 0, "mobile": 0 },
+    "site": "https://opensea-clone-pi.vercel.app",
+    "github": "https://github.com/Jdecristi/Opensea-Clone",
+    "available": ["Desktop"],
+    "description": "I build Opensea Clone to master my development skills. Built with typescript and React.js for the front-end, Thirdweb SKD for blockchain connection, and Firebase for the backend. Opensea Clone allows users to log in and customize their accounts with Metamask as well as mint, buy and sell NFTs."
+  }
+]

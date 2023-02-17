@@ -36,6 +36,7 @@ export default (props: Props) => {
       else updateDisabled(true);
     } else updateImageSize(imageSizes.lg);
 
+    if (!project.site) updateDisabled(true);
     updateProjectModalImageCount(range(1, project.modalImageCount[imageSize.ref as 'mobile' | 'tablet' | 'desktop'])), [];
   }, [imageSize]);
 
@@ -69,19 +70,21 @@ export default (props: Props) => {
                 </Button>
               </a>
             </Link>
-            {disabled ? (
-              <Button disabled={true} size="large">
-                Veiw Site
-              </Button>
-            ) : (
-              <Link href={project.site} passHref>
-                <a style={{ textDecoration: 'none' }} target="_blank">
-                  <Button variant="red" size="large">
-                    Veiw Site
-                  </Button>
-                </a>
-              </Link>
-            )}
+            {project.site ? (
+              disabled ? (
+                <Button disabled={true} size="large">
+                  Veiw Site
+                </Button>
+              ) : (
+                <Link href={project.site || ''} passHref>
+                  <a style={{ textDecoration: 'none' }} target="_blank">
+                    <Button variant="red" size="large">
+                      Veiw Site
+                    </Button>
+                  </a>
+                </Link>
+              )
+            ) : null}
           </Footer>
         ),
       }}

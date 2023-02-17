@@ -4,7 +4,7 @@
     "typography": "h1",
     "content": "Joshua DeCristi",
     "placement": {
-      "top": { "xs": "6vh", "lg": "10vh" },
+      "top": { "xs": "10vh", "lg": "10vh" },
       "left": "0px"
     }
   },
@@ -13,19 +13,10 @@
     "typography": "h3",
     "content": "Front-end Developer",
     "placement": {
-      "top": { "xs": "15vh", "lg": "20vh" },
+      "top": { "xs": "17.5vh", "lg": "20vh" },
       "left": "0px"
     },
     "sx": { "color": "text.primary" }
-  },
-  {
-    "sectionId": 0,
-    "typography": "h2",
-    "content": "Obsessed with the Front-end",
-    "placement": {
-      "top": { "xs": "20vh", "lg": "25vh" },
-      "right": "0px"
-    }
   },
   {
     "sectionId": 1,

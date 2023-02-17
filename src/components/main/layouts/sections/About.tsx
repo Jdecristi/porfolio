@@ -12,8 +12,9 @@ export default () => {
         {!isSmall && <ImageCard width={{ md: '30vw', lg: '360px' }} height={{ md: '35vw', lg: '360px' }} url="/images/main/profile.jpeg" alt="Profile Image" />}
         <TextCard width={{ xs: '100%', sm: '450px', md: '60vw', lg: '600px' }}>
           {isSmall && <Image />}
-          "I'm a front-end engineer who is passionate about building beautiful and interactive user interfaces. I love front-end technologies like React and Vue. While I
-          only have a year of professional experience, my determination and desire to tinker will help me overcome every obstacle.";
+          Utilizing problem-solving skills to tackle complex real-world issues and create simple yet robust solutions using my extensive knowledge of React.js, Vue.js,
+          and Typescript. Committed to staying up-to-date with the latest industry trends and continuously improving my skills while effectively communicating complex
+          topics clearly and simply.
         </TextCard>
       </Stack>
     </Section>

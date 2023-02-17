@@ -23,7 +23,6 @@
     "name": "Crypto Lottery",
     "imageUrl": "lottery",
     "modalImageCount": { "desktop": 4, "tablet": 4, "mobile": 4 },
-    "site": "https://billowing-night-5953.on.fleek.co/",
     "github": "https://github.com/Jdecristi/Lottery",
     "available": ["Desktop", "Tablet", "Mobile"],
     "description": "I built the Crypto Lottery to get my feet wet with blockchain development. This app comes with self-written, Mocha-tested smart contracts deployed to Rinkeby and Mumbai test networks. I used Hardhat.js to manage the backend and React.js on the front-end with Moralis to interact with the blockchains."

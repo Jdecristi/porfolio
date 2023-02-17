@@ -104,6 +104,7 @@ const CarouselContainer = styled(Box)({
 });
 
 const Image = styled(Box)({
+  position: 'relative',
   width: '100%',
 });
 

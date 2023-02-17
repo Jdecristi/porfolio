@@ -60,11 +60,11 @@ export default (props: Props) => {
       <Container ref={cardRef} onClick={flipCard}>
         <Front ref={frontRef}>
           <HoverShadow height="100%" width="100%" text={isMobile ? 'Tap to Flip Card' : 'Flip Card'} shadowOnMobile={true}>
-            <ImageCard height="100%" width="100%" url={url} alt={alt} disableShadow={true} />
+            <ImageCard height="100%" width="100%" url={url} alt={alt} />
           </HoverShadow>
         </Front>
         <Back ref={backRef}>
-          <TextCard height="100%" width="100%" disableShadow={true}>
+          <TextCard height="100%" width="100%">
             {children}
           </TextCard>
         </Back>
@@ -77,7 +77,6 @@ const Container = styled(Box)({
   height: '100%',
   width: '100%',
   position: 'relative',
-  boxShadow: '5px 5px #00000095',
   cursor: 'pointer',
   transition: 'transform 500ms ease-in-out',
 });

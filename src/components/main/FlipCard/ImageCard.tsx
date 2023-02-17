@@ -5,11 +5,10 @@ interface Props {
   width: string | { xs?: string; sm?: string; md?: string; lg?: string; xl?: string };
   url: string | null;
   alt: string;
-  disableShadow?: boolean;
 }
 
-export default ({ height, width, url, alt, disableShadow = false }: Props) => (
-  <ImageCard sx={{ height, width, boxShadow: disableShadow ? 'none' : '5px 5px #00000095' }}>
+export default ({ height, width, url, alt }: Props) => (
+  <ImageCard sx={{ height, width, boxShadow: '5px 5px #00000095' }}>
     <Image sx={url ? { backgroundImage: `url("${url}")` } : { backgroundColor: '#555555', '::Before': { content: `"${alt}"` } }} />
   </ImageCard>
 );

@@ -4,11 +4,10 @@ interface Props {
   children: React.ReactNode;
   height?: string | { xs?: string; sm?: string; md?: string; lg?: string; xl?: string };
   width: string | { xs?: string; sm?: string; md?: string; lg?: string; xl?: string };
-  disableShadow?: boolean;
 }
 
-export default ({ children, height, width, disableShadow = false }: Props) => (
-  <TextCard sx={{ height, width, backgroundColor: 'background.light', boxShadow: disableShadow ? 'none' : '5px 5px #00000095' }}>
+export default ({ children, height, width }: Props) => (
+  <TextCard sx={{ height, width, backgroundColor: 'background.light', boxShadow: '5px 5px #00000095' }}>
     <Container sx={height ? { height: '100%' } : {}}>
       <Box sx={height ? { height: 'calc(85% - 5px)' } : {}}>{children}</Box>
       <Footer>

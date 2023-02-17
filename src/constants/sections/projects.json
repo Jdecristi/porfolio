@@ -1,14 +1,21 @@
 [
   {
-    "name": "Tiles",
-    "imageUrl": "tiles",
-    "modalImageCount": { "desktop": 5, "tablet": 5, "mobile": 5 },
-    "site": "/projects/tiles",
-    "github": "https://github.com/Jdecristi/Tiles",
-    "available": ["Desktop", "Tablet", "Mobile"],
-    "description": "I built Tiles to learn Typescript and React. It is a memory game responsively designed to pixel perfection and automatically saves users' scores without needing to log in. See what your high score is by clicking on the link below."
+    "name": "Opensea Clone",
+    "imageUrl": "opensea-clone",
+    "modalImageCount": { "desktop": 7, "tablet": 0, "mobile": 0 },
+    "site": "https://opensea-clone-pi.vercel.app",
+    "github": "https://github.com/Jdecristi/Opensea-Clone",
+    "available": ["Desktop"],
+    "description": "I developed an NFT marketplace using HTML, CSS, Typescript, Next.js, Thirdweb, and Firebase. The marketplace, inspired by Opensea, was built to enhance my development skills and understanding of blockchain technology. To facilitate the marketplace's user accounts, I added Firebase SDK and enabled login with Metamask. This feature allows users to personalize their accounts and easily mint, sell, and buy NFTs. By utilizing my front-end development expertise, I was able to create an intuitive and visually appealing user interface. Overall, this project was a valuable learning experience and enabled me to enhance my skills as a developer."
   },
-
+  {
+    "name": "Crypto Lottery",
+    "imageUrl": "lottery",
+    "modalImageCount": { "desktop": 4, "tablet": 4, "mobile": 4 },
+    "github": "https://github.com/Jdecristi/Lottery",
+    "available": ["Desktop", "Tablet", "Mobile"],
+    "description": "Using Typescript and React.js, I created a responsive Weather App to refine my API skills and explore advanced topics such as the parallax effect. I integrated the Openweather API and Suncalc to allow users to search for the weather in any city and watch the UI adapt to the local weather and time. Additionally, I added a custom background that changes based on the current weather and time of day. The app was built with HTML, CSS, and Next.js."
+  },
   {
     "name": "Weather App",
     "imageUrl": "weather-app",
@@ -16,25 +23,15 @@
     "site": "/projects/weather-app",
     "github": "https://github.com/Jdecristi/WeatherApp",
     "available": ["Desktop", "Tablet", "Mobile"],
-    "description": "I built Weather App to refine my skills working with APIs and learn complex topics like the parallax effect. I built it using Typescript, React.js, Openweather API, and Suncalc. Search the weather for any city in the world and watch the user interface change based on the local weather and time."
+    "description": "I developed a responsive Weather App using HTML, CSS, Typescript, Next.js, Openweather API, and Suncalc. The app allows users to search for the weather of any city in the world and watch the user interface change based on the local weather and time. To enhance the user experience, I added the Openweather API to provide local weather information and created a custom background that changes based on the time and local weather."
   },
-
   {
-    "name": "Crypto Lottery",
-    "imageUrl": "lottery",
-    "modalImageCount": { "desktop": 4, "tablet": 4, "mobile": 4 },
-    "github": "https://github.com/Jdecristi/Lottery",
+    "name": "Tiles",
+    "imageUrl": "tiles",
+    "modalImageCount": { "desktop": 5, "tablet": 5, "mobile": 5 },
+    "site": "/projects/tiles",
+    "github": "https://github.com/Jdecristi/Tiles",
     "available": ["Desktop", "Tablet", "Mobile"],
-    "description": "I built the Crypto Lottery to get my feet wet with blockchain development. This app comes with self-written, Mocha-tested smart contracts deployed to Rinkeby and Mumbai test networks. I used Hardhat.js to manage the backend and React.js on the front-end with Moralis to interact with the blockchains."
-  },
-
-  {
-    "name": "Opensea Clone",
-    "imageUrl": "opensea-clone",
-    "modalImageCount": { "desktop": 7, "tablet": 0, "mobile": 0 },
-    "site": "https://opensea-clone-pi.vercel.app",
-    "github": "https://github.com/Jdecristi/Opensea-Clone",
-    "available": ["Desktop"],
-    "description": "I build Opensea Clone to master my development skills. Built with typescript and React.js for the front-end, Thirdweb SKD for blockchain connection, and Firebase for the backend. Opensea Clone allows users to log in and customize their accounts with Metamask as well as mint, buy and sell NFTs."
+    "description": "I created a memory game using HTML, CSS, Typescript, and React.js, which features a visually appealing custom animation of a star explosion. Additionally, I implemented a score screen that allows user data to be stored locally without requiring login. Overall, this project showcases my abilities in front-end development, and I am excited to continue building upon these skills in future projects."
   }
 ]

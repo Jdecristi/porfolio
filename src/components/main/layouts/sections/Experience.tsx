@@ -19,9 +19,9 @@ export default () => (
           June, 2021 - July, 2022
         </CardHeader>
         <Typography sx={{ fontFamily: 'Roboto' }}>
-          I worked as a fullstack developer specializing in the front-end using Vue.js, Scss, and Bootstrap. Common tasks included validating forms and templates for
-          landing pages. I undertook the task of increasing the readability and maintainability of our codebase by updating the outdated architecture. This allowed for
-          more efficient workflow by increasing reusability and readability of our codebase.
+          During my time as a Frontend Engineer, I restructured and redesigned the frontend to improve workflow and reduce user errors. By adding form validation, I also
+          bolstered security. Utilizing Vue.js, Scss, and Bootstrap, I developed visually stunning landing pages for clients, while simultaneously debugging and adding
+          new features to the production codebase.
         </Typography>
       </TextCard>
     </Container>

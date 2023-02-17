@@ -30,22 +30,24 @@ export default () => {
                   {section.name}
                 </Button>
               ))}
-              <a style={{ textDecoration: 'none' }} href="/jdecristi-resume.pdf" download>
-                <Button variant="red">Download Resume</Button>
-              </a>
+              <Link href="https://drive.google.com/file/d/1rSOC-niiWdBNRk8WsH2roVTs4LADJVi4/view" passHref>
+                <a target="blank" style={{ textDecoration: 'none' }} href="/jdecristi-resume.pdf">
+                  <Button variant="red">Download Resume</Button>
+                </a>
+              </Link>
             </>
           ) : (
             <Drawer scrollTo={(e) => scrollTo(e)} />
           )}
           <Box sx={{ marginLeft: 'auto', display: 'flex', gap: 2 }}>
-            <Link href="https://github.com/jdecristi" passHref>
+            <Link href="https://github.com/Jdecristi" passHref>
               <a target="blank">
                 <Button size="small">
                   <GitHubIcon sx={styles.sociaLinks} />
                 </Button>
               </a>
             </Link>
-            <Link href="https://www.linkedin.com/in/joshua-decristi-b84356198/">
+            <Link href="https://www.linkedin.com/in/joshua-decristi/" passHref>
               <a target="blank">
                 <Button size="small">
                   <LinkedInIcon sx={styles.sociaLinks} />

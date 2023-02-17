@@ -6,9 +6,9 @@ export default () => (
   <Section id={4}>
     <Container sx={{ mx: 'auto', mb: { xs: '-50%', sm: '-200px' }, justifyContent: { sm: 'center', lg: 'flex-start' } }}>
       <TextCard width={{ xs: '100%', sm: '450px', md: '70vw', lg: '40%', xl: '500px' }}>
-        <Image />
-        I'm currently working on the The Complete Junior to Senior Web Developer Roadmap course on Udemy. I'm taking it to further develop my skills as a front-end
-        developer. This course will teach me performance, security, and scalability techniques to help me become a more well rounded developer.
+        <Image />I am currently enrolled in the 'The Complete Junior to Senior Web Developer Roadmap' course on Udemy. With a focus on performance, security, and
+        scalability techniques, this course is equipping me with the skills to become a more well-rounded and highly proficient front-end developer. As a motivated
+        learner, I am excited to apply these new skills to my work and take on challenging projects in the future.
       </TextCard>
     </Container>
   </Section>

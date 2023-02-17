@@ -48,7 +48,7 @@ const BackgroundImage = styled(Box)({
   left: 0,
   width: '100vw',
   height: '100vh',
-  backgroundImage: 'url("images/main/paper-background.png")',
+  backgroundColor: '#DAD3C9',
   backgroundRepeat: 'repeat-y',
   backgroundPosition: 'center',
   backgroundSize: 'cover',

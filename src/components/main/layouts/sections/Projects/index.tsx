@@ -12,6 +12,7 @@ export interface IProject {
   site: string;
   github: string;
   available: string;
+  exerpt: string;
   description: string;
 }
 
@@ -28,10 +29,6 @@ export default () => {
 
     updateModalOpen(projectIndex);
   };
-  const exerpt = (description: string): string => {
-    if (window.innerWidth >= 800 && window.innerWidth <= 900) return description.substring(0, 50);
-    return description.substring(0, 100);
-  };
 
   return (
     <Section id={1}>
@@ -46,10 +43,10 @@ export default () => {
               dontFlip={forceDontFlip}
             >
               <Box height="100%" position="relative">
-                <Typography variant="h3" sx={{ fontSize: { md: '1.25rem', lg: 'inherent' } }}>
+                <Typography variant="h3" sx={{ fontSize: { md: '1.25rem', lg: 'inherent' }, fontWeight: 'bold' }}>
                   {project.name}
                 </Typography>
-                <Typography>{`${exerpt(project.description)}...`}</Typography>
+                <Exerpt>{project.exerpt}</Exerpt>
                 <LearnMoreButton variant="red" onClick={() => toggleModal(index)}>
                   Learn More
                 </LearnMoreButton>
@@ -75,9 +72,13 @@ const GridItem = styled(Grid)({
   alignItems: 'center',
 });
 
+const Exerpt = styled(Typography)({
+  fontSize: '20px',
+});
+
 const LearnMoreButton = styled(Button)({
-  display: 'block',
-  marginTop: 'auto',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  position: 'absolute',
+  left: '50%',
+  bottom: 0,
+  transform: 'translateX(-50%)',
 });

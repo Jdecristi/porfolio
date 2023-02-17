@@ -77,7 +77,7 @@ const Container = styled(Box)({
   height: '100%',
   width: '100%',
   position: 'relative',
-  boxShadow: '4px 4px 5px #00000090',
+  boxShadow: '5px 5px #00000095',
   cursor: 'pointer',
   transition: 'transform 500ms ease-in-out',
 });

@@ -218,7 +218,7 @@ const componentOverrides = (theme: Theme) => ({
           color: theme?.palette?.text?.primary,
           backgroundColor: theme.palette?.background?.white,
           borderRadius: 0,
-          boxShadow: '4px 4px 5px 1px #00000090',
+          boxShadow: '5px 5px #00000095',
           textTransform: 'none',
           fontFamily: 'Dancing Script',
 
@@ -233,10 +233,10 @@ const componentOverrides = (theme: Theme) => ({
           },
 
           '@keyframes button-animation': {
-            '0%': { boxShadow: '3px 3px 5px #00000090' },
-            '35%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 1px #00000090' },
-            '65%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 1px #00000090' },
-            '100%': { boxShadow: '3px 3px 5px #00000090' },
+            '0%': { boxShadow: '5px 5px #00000095' },
+            '35%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 #00000095' },
+            '65%': { transform: ' translate(3px, 3px) scale(0.95)', boxShadow: '0 0 #00000095' },
+            '100%': { boxShadow: '5px 5px #00000095' },
           },
         },
       },

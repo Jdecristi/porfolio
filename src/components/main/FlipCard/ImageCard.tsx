@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default ({ height, width, url, alt, disableShadow = false }: Props) => (
-  <ImageCard sx={{ height, width, boxShadow: disableShadow ? 'none' : '4px 4px 5px #00000090' }}>
+  <ImageCard sx={{ height, width, boxShadow: disableShadow ? 'none' : '5px 5px #00000095' }}>
     <Image sx={url ? { backgroundImage: `url("${url}")` } : { backgroundColor: '#555555', '::Before': { content: `"${alt}"` } }} />
   </ImageCard>
 );

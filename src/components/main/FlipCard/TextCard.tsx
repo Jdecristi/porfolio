@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default ({ children, height, width, disableShadow = false }: Props) => (
-  <TextCard sx={{ height, width, backgroundColor: 'background.light', boxShadow: disableShadow ? 'none' : '4px 4px 5px #00000090' }}>
+  <TextCard sx={{ height, width, backgroundColor: 'background.light', boxShadow: disableShadow ? 'none' : '5px 5px #00000095' }}>
     <Container sx={height ? { height: '100%' } : {}}>
       <Box sx={height ? { height: 'calc(85% - 5px)' } : {}}>{children}</Box>
       <Footer>

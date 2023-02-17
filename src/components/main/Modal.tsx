@@ -18,7 +18,7 @@ export default (props: Props) => {
         <StyledPaper>
           <Header>
             {children?.header}
-            <CloseButton size="small" onClick={closed}>
+            <CloseButton onClick={closed}>
               <CloseIcon />
             </CloseButton>
           </Header>
@@ -51,8 +51,7 @@ const Header = styled(Stack)({
   alignItems: 'center',
 });
 
-const CloseButton = styled(Button)({
-  paddingLeft: '20px',
+const CloseButton = styled(Box)({
   width: '30px',
   minWidth: '30px',
   cursor: 'pointer',

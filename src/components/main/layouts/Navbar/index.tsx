@@ -32,7 +32,7 @@ export default () => {
               ))}
               <Link href="https://drive.google.com/file/d/1rSOC-niiWdBNRk8WsH2roVTs4LADJVi4/view" passHref>
                 <a target="blank" style={{ textDecoration: 'none' }} href="/jdecristi-resume.pdf">
-                  <Button variant="red">Download Resume</Button>
+                  <Button variant="red">Resume</Button>
                 </a>
               </Link>
             </>

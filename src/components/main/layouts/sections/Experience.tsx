@@ -14,12 +14,12 @@ export default () => (
       <TextCard width={{ xs: '100%', sm: '450px', md: '70vw', lg: '50%', xl: '600px' }}>
         <CardHeader>
           <Typography variant="h3" sx={{ fontFamily: 'Roboto' }}>
-            That's Us
+            Thumbstopper®
           </Typography>
           June, 2021 - July, 2022
         </CardHeader>
         <Typography sx={{ fontFamily: 'Roboto' }}>
-          During my time as a Frontend Engineer, I restructured and redesigned the frontend to improve workflow and reduce user errors. By adding form validation, I also
+          During my time as a Software Engineer, I restructured and redesigned the frontend to improve workflow and reduce user errors. By adding form validation, I also
           bolstered security. Utilizing Vue.js, Scss, and Bootstrap, I developed visually stunning landing pages for clients, while simultaneously debugging and adding
           new features to the production codebase.
         </Typography>

@@ -30,7 +30,7 @@ export default () => {
                   {section.name}
                 </Button>
               ))}
-              <Link href="https://drive.google.com/file/d/1rSOC-niiWdBNRk8WsH2roVTs4LADJVi4/view" passHref>
+              <Link href="https://drive.google.com/file/d/1BVptIGYZl4XwR4W6XmWM38765XssGHO3/view?usp=sharing" passHref>
                 <a target="blank" style={{ textDecoration: 'none' }} href="/jdecristi-resume.pdf">
                   <Button variant="red">Resume</Button>
                 </a>
